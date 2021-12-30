@@ -1,15 +1,18 @@
 import random
 
-d = ['jogging', 'clothes','banana','controller','peaches', 'butter','potatoes','coffee',
-     'christmas','computer','blanket', 'laptop','cuddles','bicycle','couch','watch','kitten',
-     'apple','refrigerator']
+wordlist = []
+
+with open('wordlist.txt') as f:
+    for line in f:
+        wordlist.append(line.rstrip('\n'))
+          
 answer = 'y'
 
 while answer.lower() == 'y':
     enter = 0
     letter = 0
     number = 0
-    hidden_word = random.choice(d)
+    hidden_word = random.choice(wordlist)
     token = 0
     correct = []
     wrong = []
@@ -45,7 +48,6 @@ while answer.lower() == 'y':
                     wrong.append(guess)
             else:
                 number += 1
-
         for i in hidden_word:
             if i == ' ':
                 word.append(' ')
